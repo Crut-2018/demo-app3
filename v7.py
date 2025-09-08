@@ -4,7 +4,7 @@ import plotly.express as px
 
 # --- Load and prepare the data ---
 try:
-    df = pd.read_csv('ETIMTxnData_2025-9-6_1748.csv')
+    df = pd.read_csv('compressed_data.csv.gz',compression='gzip')
     df['TICKET_TIME_STAMP'] = pd.to_datetime(df['TICKET_TIME_STAMP'])
     df['Hour'] = df['TICKET_TIME_STAMP'].dt.hour
     df['Time_Interval'] = (df['Hour'] // 3) * 3
